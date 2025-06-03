@@ -15,7 +15,7 @@ Open-source OS made from scratch.
 3. Open Powershell as admin
 4. `winget install nasm -i`
 5. Find where you have installed nasm (for example: `C:\Program Files\NASM`) and open the `nasmpath.bat` file
-6. `cd "C:\Users\creat\Documents\GitHub\killmeOS\osdev"` Go to the dir where you clopied the repo
+6. `cd "C:\Users\[your name]\Documents\GitHub\killmeOS\osdev"` Go to the dir where you clopied the repo
 7. `nasm -f bin boot.asm -o boot.bin`
 8. Go to where you installed QEMU and add that as an environment path (for example: `C:\Program Files\qemu\`)
 9. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
