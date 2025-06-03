@@ -9,5 +9,15 @@ Open-source OS made from scratch.
 
 ## How to contribute
 
-1. Download [QEMU](https://download.qemu.org/)
-2. updatnem to potom
+~ Tutorial for Windows 10/11 users :pp
+1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
+2. Install [QEMU](https://download.qemu.org/)
+3. Open Powershell as admin
+4. `winget install nasm -i`
+5. Find where you have installed nasm (for example: `C:\Program Files\NASM`) and open the `nasmpath.bat` file
+6. `cd "C:\Users\creat\Documents\GitHub\killmeOS\osdev"` Go to the dir where you clopied the repo
+7. `nasm -f bin boot.asm -o boot.bin`
+8. Go to where you installed QEMU and add that as an environment path (for example: `C:\Program Files\qemu\`)
+9. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
+10. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
+11. Now, finally if you've done everything correctly it should launch killmeOS in QEMU virtual machine :>
