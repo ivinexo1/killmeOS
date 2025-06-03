@@ -17,7 +17,6 @@ For arch: `pacman -S qemu-full`
 Or build it yourself:
 ```
 
-
 wget https://download.qemu.org/qemu-10.0.2.tar.xz
 tar xvJf qemu-10.0.2.tar.xz
 cd qemu-10.0.2
@@ -30,8 +29,8 @@ For debian: `apt-get install nasm`
 For arch: `pacman -S nasm`
 Or for your distro
 4. Be happy to not use Windows :>
-```
-```
+
+
 
 
 ~ Tutorial for Windows 10/11 users :pp
