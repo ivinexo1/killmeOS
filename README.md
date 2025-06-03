@@ -9,6 +9,31 @@ Open-source OS made from scratch.
 
 ## How to contribute
 
+~ Tutorial for Linux users
+1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
+2. Install qemu:
+For debian: `apt-get install qemu-system`
+For arch: `pacman -S qemu-full`
+Or build it yourself:
+```
+
+
+wget https://download.qemu.org/qemu-10.0.2.tar.xz
+tar xvJf qemu-10.0.2.tar.xz
+cd qemu-10.0.2
+./configure
+make
+```
+
+3. Install nasm:
+For debian: `apt-get install nasm`
+For arch: `pacman -S nasm`
+Or for your distro
+4. Be happy to not use Windows :>
+```
+```
+
+
 ~ Tutorial for Windows 10/11 users :pp
 1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
 2. Install [QEMU](https://download.qemu.org/)
