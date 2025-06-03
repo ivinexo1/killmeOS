@@ -11,7 +11,7 @@ Open-source OS made from scratch.
 
 ~ Tutorial for Linux users
 1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
-2. Install qemu:
+2. Install qemu:\
 For debian: `apt-get install qemu-system`\
 For arch: `pacman -S qemu-full`\
 Or build it yourself:
