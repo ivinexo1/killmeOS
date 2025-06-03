@@ -22,9 +22,9 @@ cd qemu-10.0.2
 ./configure
 make
 ```
-3. Install nasm:
-For debian: `apt-get install nasm`
-For arch: `pacman -S nasm`
+3. Install nasm:\
+For debian: `apt-get install nasm`\
+For arch: `pacman -S nasm`\
 Or for your distro
 4. Be happy to not use Windows :>
 
