@@ -16,7 +16,6 @@ For debian: `apt-get install qemu-system`
 For arch: `pacman -S qemu-full`
 Or build it yourself:
 ```
-
 wget https://download.qemu.org/qemu-10.0.2.tar.xz
 tar xvJf qemu-10.0.2.tar.xz
 cd qemu-10.0.2
