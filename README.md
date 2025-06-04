@@ -31,7 +31,7 @@ Or for your distro
 
 
 
-~ Tutorial for Windows 10/11 users :pp
+~ Tutorial for Windows 10/11 users :p
 1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
 2. Install [QEMU](https://download.qemu.org/)
 3. Open Powershell as admin
