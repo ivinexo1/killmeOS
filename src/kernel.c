@@ -1,4 +1,8 @@
+#include "../include/vga.h"
+
 void main() {
-    *(char*)0xb8000 = 'K';
-    return;
+  initTerminal();
+  setTerminalColor(VGA_COLOR_BLACK, VGA_COLOR_WHITE);
+  printChar('K');
+  return;
 }
