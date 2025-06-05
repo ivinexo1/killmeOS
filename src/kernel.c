@@ -3,6 +3,6 @@
 void main() {
   initTerminal();
   setTerminalColor(VGA_COLOR_BLACK, VGA_COLOR_WHITE);
-  printChar('K');
+  printString("Hello World");
   return;
 }

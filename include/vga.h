@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
 
 enum vga_color {
 	VGA_COLOR_BLACK = 0,
@@ -23,6 +25,8 @@ enum vga_color {
 #define VGA_WIDTH   80
 #define VGA_HEIGHT  25
 #define VGA_MEMORY  0xB8000 
+
+size_t strlen(const char*);
 
 uint8_t setTerminalColor(enum vga_color, enum vga_color);
 

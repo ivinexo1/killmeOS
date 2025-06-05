@@ -1,7 +1,7 @@
 #include "../include/vga.h"
 #include <stdint.h>
 #include <stddef.h>
-
+#include <stdbool.h>
 
 size_t terminal_row;
 size_t terminal_column;
@@ -11,6 +11,15 @@ uint16_t* terminal_buffer = (uint16_t*)VGA_MEMORY;
 uint8_t setTerminalColor(enum vga_color fontColor, enum vga_color backgroundColor){
   terminal_color = (backgroundColor << 4) | fontColor;
   return 0;
+}
+
+
+size_t strlen(const char* str) 
+{
+	size_t len = 0;
+	while (str[len])
+		len++;
+	return len;
 }
 
 void printChar(unsigned char c){
@@ -35,6 +44,10 @@ void initTerminal(){
 
 
 
-void printString(const char*);
+void printString(const char* msg){
+  for (size_t i = 0; i < strlen(msg); i++) {
+    printChar(msg[i]);
+  }
+}
 
 
