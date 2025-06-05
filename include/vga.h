@@ -28,6 +28,8 @@ enum vga_color {
 
 size_t strlen(const char*);
 
+void scroll();
+
 uint8_t setTerminalColor(enum vga_color, enum vga_color);
 
 void initTerminal();
