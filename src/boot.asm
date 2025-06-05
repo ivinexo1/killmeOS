@@ -11,7 +11,7 @@ mov bx, KERNEL_LOCATION
 
 
 mov ah, 2
-mov al, 20
+mov al, 50
 mov ch, 0
 mov dh, 0
 mov cl, 2
