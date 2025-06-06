@@ -1,11 +1,17 @@
 #include "../include/vga.h"
+#include "../include/idt.h"
+#include "../include/isr.h"
 
 void main() {
+  isr_install();
   initTerminal();
   setTerminalColor(VGA_COLOR_BLACK, VGA_COLOR_WHITE);
   printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
-//  for (int i = 0xb8000; i < 0xc0000; i = i+2) {
-//   *(char*)i = 'A';
-//  }
+/*  asm volatile("mov %eax, 5");
+  asm volatile("mov %ebx, 0"); 
+  asm volatile("div %ebx");*/
+  asm volatile("sti");
+  int x = 1/0;
   return;
+
 }
