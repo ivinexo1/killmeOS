@@ -7,7 +7,7 @@
 
 Open-source OS made from scratch.
 
-## How to contribute
+## How to setup
 
 ~ Tutorial for Linux users
 1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
@@ -40,6 +40,15 @@ For debian: will add later but there shoud be resources on the web
 6. `cd "C:\Users\[your name]\Documents\GitHub\killmeOS\osdev"` Go to the dir where you clonned the repo
 7. `nasm -f bin boot.asm -o boot.bin`
 8. Go to where you installed QEMU and add that as an environment path (for example: `C:\Program Files\qemu\`)
-9. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
-10. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
-11. Now, finally if you've done everything correctly it should launch killmeOS in QEMU virtual machine :>
+9. Go to powershell and `wsl --install`
+10. `wsl -l -o` to check distros
+11. Then install Arch Linux `wsl --install -d archlinux` (name might be different but it's archlinux for me)
+12. Now you might need to setup stuff like user so you can do specific commands
+13. Then inside Arch Linux `sudo pacman -S --needed git base-devel`
+14. `git clone https://aur.archlinux.org/yay.git`
+15. `cd yay`
+16. `makepkg -si` (make sure you're not in the root but using some user)
+17. `yay i386-elf-gcc` and enter 1
+18. Now wait until you download i386-elf-gcc
+19. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
+20. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
