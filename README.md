@@ -52,7 +52,11 @@ For debian: will add later but there shoud be resources on the web
 18. Go to `sudo nano /etc/locale.gen` (nano or any other text editor)
 19. And uncomment `#en_US.UTF-8 UTF-8` to `en_US.UTF-8 UTF-8`, then save
 20. `sudo locale-gen`
-21. `yay i386-elf-gcc` and enter 1
-22. Now wait until you download i386-elf-gcc
-23. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
-24. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
+21. Before installing i386-elf-gcc make sure you have ENOUGH MEMORY!! It finally worked for me when I set it to 6gb
+22. Check available filesize `df -h`, memory can be changed here `"C:\Users\[your name]\.wslconfig"`
+23. And tmpfs file max storage by using `sudo mount -o remount,size=6G /tmp` (this will get reset next reboot)
+24. Before you install i386-elf-gcc just know that WSL is going to be using like 90% of your CPU
+25. `yay i386-elf-gcc` and enter 1 (for the other options just press enter)
+26. Now wait until you download i386-elf-gcc (this might take somewhere between 40 minutes to 3 hours)
+27. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
+28. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
