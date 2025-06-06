@@ -4,14 +4,15 @@
 
 void main() {
   isr_install();
-  initTerminal();
-//  setTerminalColor(VGA_COLOR_BLUE, VGA_COLOR_BLACK);
-  printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
-/*  asm volatile("mov %eax, 5");
-  asm volatile("mov %ebx, 0"); 
-  asm volatile("div %ebx");*/
   asm volatile("sti");
-  int x = 1/0;
+  enable_cursor(0, 15);
+  setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
+  initTerminal();
+//  update_cursor(0);
+  printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
+//  int x = 1/0;
+  asm volatile("cli");
+  
   return;
 
 }

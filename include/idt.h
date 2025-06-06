@@ -18,7 +18,7 @@ typedef struct {
 #define low_16(address) (uint16_t)((address) & 0xFFFF)
 #define high_16(address) (uint16_t)(((address) >> 16) & 0xFFFF)
 
-#define IDT_ENTRIES 1
+#define IDT_ENTRIES 256
 
 void set_idt_gate(int, uint32_t);
 void load_idt();
