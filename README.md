@@ -28,7 +28,7 @@ For arch: `pacman -S nasm`\
 Or for your distro\
 4. Install i386-elf-gcc\
 For arch: `yay i386-elf-gcc` or `paru i368-elf-gcc`\
-For debian: will add later but there shoud be recources on the web\
+For debian: will add later but there shoud be resources on the web\
 5. ~Be happy to not use Windows :>~
 
 ~ Tutorial for Windows 10/11 users :pp
