@@ -13,6 +13,8 @@ char *exeption_msg[] = {
 };
 
 void isr_handler(registers_t *r){
+  setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLUE);
+  printChar('\n');
   printString(exeption_msg[r->int_no]);
   while (true) {
   }

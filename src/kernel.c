@@ -5,7 +5,7 @@
 void main() {
   isr_install();
   initTerminal();
-  setTerminalColor(VGA_COLOR_BLACK, VGA_COLOR_WHITE);
+//  setTerminalColor(VGA_COLOR_BLUE, VGA_COLOR_BLACK);
   printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
 /*  asm volatile("mov %eax, 5");
   asm volatile("mov %ebx, 0"); 
