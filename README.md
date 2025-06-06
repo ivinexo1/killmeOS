@@ -26,7 +26,10 @@ make
 For debian: `apt-get install nasm`\
 For arch: `pacman -S nasm`\
 Or for your distro
-4. ~Be happy to not use Windows :>~
+4: Install i386-elf-gcc\
+For arch: `yay i386-elf-gcc` or `paru i368-elf-gcc`\
+For debian: will add later but there shoud be recources on the web\
+5. ~Be happy to not use Windows :>~
 
 ~ Tutorial for Windows 10/11 users :pp
 1. Clone the repository `git clone "https://github.com/ivinexo1/killmeOS/"`
