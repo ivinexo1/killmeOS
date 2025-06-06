@@ -36,9 +36,6 @@ For debian: will add later but there shoud be resources on the web
 2. Install [QEMU](https://download.qemu.org/)
 3. Open Powershell as admin
 4. `winget install nasm -i`
-5. Find where you have installed nasm (for example: `C:\Program Files\NASM`) and open the `nasmpath.bat` file
-6. `cd "C:\Users\[your name]\Documents\GitHub\killmeOS\osdev"` Go to the dir where you clonned the repo
-7. `nasm -f bin boot.asm -o boot.bin`
 8. Go to where you installed QEMU and add that as an environment path (for example: `C:\Program Files\qemu\`)
 9. Go to powershell and `wsl --install`
 10. `wsl -l -o` to check distros
@@ -58,5 +55,9 @@ For debian: will add later but there shoud be resources on the web
 24. Before you install i386-elf-gcc just know that WSL is going to be using like 90% of your CPU
 25. `yay i386-elf-gcc` and enter 1 (for the other options just press enter)
 26. Now wait until you download i386-elf-gcc (this might take somewhere between 40 minutes to 3 hours)
-27. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
-28. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
+27. After it's installed you can check by `i386-elf-gcc -v`
+28. If it's installed correctly navigate to the dir of killmeOS build `'/mnt/c/Users/[your name]/Documents/GitHub/killmeOS/build'` and execute `./makeNrun.sh`
+29. Find where you have installed nasm (for example: `C:\Program Files\NASM`) and open the `nasmpath.bat` file
+30. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
+31. Now back in `nasmpath.bat` enter `"C:\Program Files\qemu\qemu-system-x86_64.exe" -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M`
+32. If you've done everything correctly you should now see a QEMU instance running killmeOS :DD
