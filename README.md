@@ -56,7 +56,7 @@ For debian: will add later but there shoud be resources on the web
 25. `yay i386-elf-gcc` and enter 1 (for the other options just press enter)
 26. Now wait until you download i386-elf-gcc (this might take somewhere between 40 minutes to 3 hours)
 27. After it's installed you can check by `i386-elf-gcc -v`
-28. If it's installed correctly navigate to the dir of killmeOS build `'/mnt/c/Users/[your name]/Documents/GitHub/killmeOS/build'` and execute `./makeNrun.sh`
+28. If it's installed correctly navigate to the dir of killmeOS build `cd '/mnt/c/Users/[your name]/Documents/GitHub/killmeOS/build'` and execute `./makeNrun.sh`
 29. Find where you have installed nasm (for example: `C:\Program Files\NASM`) and open the `nasmpath.bat` file
 30. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
 31. Now back in `nasmpath.bat` enter `"C:\Program Files\qemu\qemu-system-x86_64.exe" -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M`
