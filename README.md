@@ -44,11 +44,15 @@ For debian: will add later but there shoud be resources on the web
 10. `wsl -l -o` to check distros
 11. Then install Arch Linux `wsl --install -d archlinux` (name might be different but it's archlinux for me)
 12. Now you might need to setup stuff like user so you can do specific commands
-13. Then inside Arch Linux `sudo pacman -S --needed git base-devel`
-14. `git clone https://aur.archlinux.org/yay.git`
-15. `cd yay`
-16. `makepkg -si` (make sure you're not in the root but using some user)
-17. `yay i386-elf-gcc` and enter 1
-18. Now wait until you download i386-elf-gcc
-19. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
-20. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
+13. Install nano (or any other text editor) `sudo pacman -S nano`
+14. Then inside Arch Linux `sudo pacman -S --needed git base-devel`
+15. `git clone https://aur.archlinux.org/yay.git`
+16. `cd yay`
+17. `makepkg -si` (make sure you're not in the root but using some user)
+18. Go to `sudo nano /etc/locale.gen` (nano or any other text editor)
+19. And uncomment `#en_US.UTF-8 UTF-8` to `en_US.UTF-8 UTF-8`, then save
+20. `sudo locale-gen`
+21. `yay i386-elf-gcc` and enter 1
+22. Now wait until you download i386-elf-gcc
+23. Then go back to the QEMU folder and find a file called `qemu-system-x86_64.exe`, then copy as path
+24. Now back in `nasmpath.bat` enter the path to the .exe followed by boot.bin (for example: `"C:\Program Files\qemu\qemu-system-x86_64.exe" boot.bin`)
