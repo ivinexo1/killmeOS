@@ -8,9 +8,8 @@ void main() {
   enable_cursor(0, 15);
   setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
   initTerminal();
-//  update_cursor(0);
   printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
-//  int x = 1/0;
+  asm volatile("int $0x1f");
   asm volatile("cli");
   
   return;
