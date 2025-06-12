@@ -46,37 +46,37 @@ void isr_install() {
 
   // main PIC ~ 0x20 command ~ 0x21 data
   // sec. PIC ~ 0xA0 command ~ 0xA1 data
- // outb(0x20, 0x11);
- // outb(0xA0, 0x11);
- // outb(0x21, 0x20);
- // outb(0xA1, 0x28);
- // outb(0x21, 0x04);
- // outb(0xA1, 0x02);
- // outb(0x21, 0x01);
- // outb(0xA1, 0x01);
- // outb(0x21, 0x0);
- // outb(0xA1, 0x0);
+  outb(0x20, 0x11);
+  outb(0xA0, 0x11);
+  outb(0x21, 0x20);
+  outb(0xA1, 0x28);
+  outb(0x21, 0x04);
+  outb(0xA1, 0x02);
+  outb(0x21, 0x01);
+  outb(0xA1, 0x01);
+  outb(0x21, 0x0);
+  outb(0xA1, 0x0);
   // initialization commands [ICW] : https://www.thesatya.com/8259.html
 
   // main PIC
-//  set_idt_gate(32, (uint32_t)irq0);
-//  set_idt_gate(33, (uint32_t)irq1);
-//  set_idt_gate(34, (uint32_t)irq2);
-//  set_idt_gate(35, (uint32_t)irq3);
-//  set_idt_gate(36, (uint32_t)irq4);
-//  set_idt_gate(37, (uint32_t)irq5);
-//  set_idt_gate(38, (uint32_t)irq6);
-//  set_idt_gate(39, (uint32_t)irq7);
-//
-//  // secondary PIC
-//  set_idt_gate(40, (uint32_t)irq8);
-//  set_idt_gate(41, (uint32_t)irq9);
-//  set_idt_gate(42, (uint32_t)irq10);
-//  set_idt_gate(43, (uint32_t)irq11);
-//  set_idt_gate(44, (uint32_t)irq12);
-//  set_idt_gate(45, (uint32_t)irq13);
-//  set_idt_gate(46, (uint32_t)irq14);
-//  set_idt_gate(47, (uint32_t)irq15);
+  set_idt_gate(32, (uint32_t)irq0);
+  set_idt_gate(33, (uint32_t)irq1);
+  set_idt_gate(34, (uint32_t)irq2);
+  set_idt_gate(35, (uint32_t)irq3);
+  set_idt_gate(36, (uint32_t)irq4);
+  set_idt_gate(37, (uint32_t)irq5);
+  set_idt_gate(38, (uint32_t)irq6);
+  set_idt_gate(39, (uint32_t)irq7);
+
+  // secondary PIC
+  set_idt_gate(40, (uint32_t)irq8);
+  set_idt_gate(41, (uint32_t)irq9);
+  set_idt_gate(42, (uint32_t)irq10);
+  set_idt_gate(43, (uint32_t)irq11);
+  set_idt_gate(44, (uint32_t)irq12);
+  set_idt_gate(45, (uint32_t)irq13);
+  set_idt_gate(46, (uint32_t)irq14);
+  set_idt_gate(47, (uint32_t)irq15);
 
   load_idt();
 }
@@ -128,3 +128,19 @@ void isr_handler(registers_t *r){
 
 
 
+void register_interrupt_handler(uint8_t n, isr_t handler) {
+    interrupt_handlers[n] = handler;
+}
+
+void irq_handler(registers_t *r) {
+    /* Handle the interrupt in a more modular way */
+    if (interrupt_handlers[r->int_no] != 0) {
+        isr_t handler = interrupt_handlers[r->int_no];
+        handler(r);
+    }
+    // EOI
+    if (r->int_no >= 40) {
+        outb(0xA0, 0x20); /* follower */
+    }
+    outb(0x20, 0x20); /* leader */
+}
