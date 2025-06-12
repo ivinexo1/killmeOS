@@ -6,7 +6,6 @@ i386-elf-gcc -ffreestanding -m32 -W -g -c ../src/isr.c -o isr.o
 i386-elf-gcc -ffreestanding -m32 -g -c ../src/keyboard.c -o keyboard.o
 nasm ../src/isrhandler.asm -f elf -o isrhandler.o
 nasm ../src/kernel_entry.asm -f elf -o kernel_entry.o
-
 i386-elf-ld -o full_kernel.bin -Ttext 0x1000 kernel_entry.o kernel.o vga_driver.o ports.o idt.o isr.o isrhandler.o keyboard.o --oformat binary
 nasm ../src/boot.asm -f bin -o boot.bin
 cat boot.bin full_kernel.bin >everything.bin

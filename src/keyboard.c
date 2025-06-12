@@ -12,7 +12,7 @@ void print_letter(uint8_t scancode) {
             printString("ESC");
             break;
         case 0x2:
-            printString("1");
+            printString("1 one");
             break;
         case 0x3:
             printString("2");
@@ -91,6 +91,7 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x1C:
             printString("ENTER");
+            printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
             break;
         case 0x1D:
             printString("LCtrl");
@@ -196,7 +197,7 @@ void print_letter(uint8_t scancode) {
 void keyboard_callback(registers_t *regs) {
     uint8_t scancode = inb(0x60);
     print_letter(scancode);
-    printChar('\n');
+    //printChar('\n'); nechces radsej dat ze new line iba ked sa stlaci enter?
 }
 
 void init_keyboard() {
