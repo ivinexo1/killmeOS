@@ -5,6 +5,10 @@
   <img src="https://img.shields.io/github/stars/ivinexo1/killmeOS"></img>
 </div>
 
+<div align="center" dir="auto">
+  <img src="https://github.com/user-attachments/assets/c319f234-fbf6-473a-9af1-dc54adec1504"></img>
+</div>
+
 Open-source OS made from scratch.
 
 ## How to setup
