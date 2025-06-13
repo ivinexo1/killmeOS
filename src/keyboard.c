@@ -12,7 +12,7 @@ void print_letter(uint8_t scancode) {
             printString("ESC");
             break;
         case 0x2:
-            printString("1 one");
+            printString("1");
             break;
         case 0x3:
             printString("2");
@@ -90,11 +90,11 @@ void print_letter(uint8_t scancode) {
             printString("]");
             break;
         case 0x1C:
-            printString("ENTER");
+            //printString("ENTER");
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
             break;
         case 0x1D:
-            printString("LCtrl");
+            printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
             break;
         case 0x1E:
             printString("A");
