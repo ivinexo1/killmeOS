@@ -191,6 +191,8 @@ void print_letter(uint8_t scancode) {
                 print_letter(scancode - 0x80);
             } else printString("Unknown key up");
             break;
+    keybuffer[size] = scancode;
+    size++;
     }
 }
 
