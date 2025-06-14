@@ -3,6 +3,8 @@
 #include "../include/isr.h"
 #include "../include/vga.h"
 
+int keybuffer[MAX_SIZE];
+
 void print_letter(uint8_t scancode) {
     switch (scancode) {
         case 0x0:
@@ -180,10 +182,10 @@ void print_letter(uint8_t scancode) {
         case 0x39:
             printString("Space");
             break;
-        default:
-            /* 'keuyp' event corresponds to the 'keydown' + 0x80
+/*        default:
+            * 'keuyp' event corresponds to the 'keydown' + 0x80
              * it may still be a scancode we haven't implemented yet, or
-             * maybe a control/escape sequence */
+             * maybe a control/escape sequence 
             if (scancode <= 0x7f) {
                 printString("Unknown key down");
             } else if (scancode <= 0x39 + 0x80) {
@@ -191,8 +193,8 @@ void print_letter(uint8_t scancode) {
                 print_letter(scancode - 0x80);
             } else printString("Unknown key up");
             break;
-    keybuffer[size] = scancode;
-    size++;
+*	keybuffer[size] = 'a';
+	size++;*/
     }
 }
 

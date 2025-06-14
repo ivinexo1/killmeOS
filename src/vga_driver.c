@@ -83,11 +83,15 @@ void printChar(unsigned char c){
     terminal_row++;
     uint16_t linepos = get_cursor_position() % VGA_WIDTH;
     update_cursor(get_cursor_position() + VGA_WIDTH - linepos);
-  }else{
+ }else{
     size_t index = (VGA_WIDTH*terminal_row) + terminal_column;
     terminal_buffer[index] = (terminal_color << 8) | c;
     terminal_column += 1;
     update_cursor(get_cursor_position() + 1);
+  }
+  if(terminal_column > VGA_WIDTH){
+    terminal_column = 0;
+    terminal_row++;
   }
   if(terminal_row == VGA_HEIGHT ){
     scroll();
