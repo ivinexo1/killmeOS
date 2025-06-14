@@ -12,3 +12,5 @@ cat boot.bin full_kernel.bin >everything.bin
 cat everything.bin zeroes.bin >OS.bin
 #qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M
 #qemu-system-i386 -fda OS.bin
+# line 1 - 12 wsl
+# run line 13 in power shell
