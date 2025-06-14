@@ -10,7 +10,5 @@ i386-elf-ld -o full_kernel.bin -Ttext 0x1000 kernel_entry.o kernel.o vga_driver.
 nasm ../src/boot.asm -f bin -o boot.bin
 cat boot.bin full_kernel.bin >everything.bin
 cat everything.bin zeroes.bin >OS.bin
-#qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M
+qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M
 #qemu-system-i386 -fda OS.bin
-# line 1 - 12 wsl
-# run line 13 in power shell
