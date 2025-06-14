@@ -4,6 +4,7 @@
 #include "../include/vga.h"
 
 int keybuffer[MAX_SIZE];
+int shift_pressed = 0; // 0 - shift not pressed, 32 - shift pressed
 
 void print_letter(uint8_t scancode) {
     switch (scancode) {
@@ -14,40 +15,40 @@ void print_letter(uint8_t scancode) {
             //printString("ESC");
             break;
         case 0x2:
-            printString("1");
+            printChar(shift_pressed ? '!' : '1');
             break;
         case 0x3:
-            printString("2");
+            printChar(shift_pressed ? '@' : '2');
             break;
         case 0x4:
-            printString("3");
+            printChar(shift_pressed ? '#' : '3');
             break;
         case 0x5:
-            printString("4");
+            printChar(shift_pressed ? '$' : '4');
             break;
         case 0x6:
-            printString("5");
+            printChar(shift_pressed ? '%' : '5');
             break;
         case 0x7:
-            printString("6");
+            printChar(shift_pressed ? '^' : '6');
             break;
         case 0x8:
-            printString("7");
+            printChar(shift_pressed ? '&' : '7');
             break;
         case 0x9:
-            printString("8");
+            printChar(shift_pressed ? '*' : '8');
             break;
         case 0x0A:
-            printString("9");
+            printChar(shift_pressed ? '(' : '9');
             break;
         case 0x0B:
-            printString("0");
+            printChar(shift_pressed ? ')' : '0');
             break;
         case 0x0C:
-            printString("-");
+            printChar(shift_pressed ? '_' : '-');
             break;
         case 0x0D:
-            printString("+");
+            printChar(shift_pressed ? '+' : '=');
             break;
         case 0x0E:
             //printString("Backspace");
@@ -56,40 +57,40 @@ void print_letter(uint8_t scancode) {
             printString("   ");
             break;
         case 0x10:
-            printString("Q");
+            printChar(shift_pressed ? 'Q' : 'q');
             break;
         case 0x11:
-            printString("W");
+            printChar(shift_pressed ? 'W' : 'w');
             break;
         case 0x12:
-            printString("E");
+            printChar(shift_pressed ? 'E' : 'e');
             break;
         case 0x13:
-            printString("R");
+            printChar(shift_pressed ? 'R' : 'r');
             break;
         case 0x14:
-            printString("T");
+            printChar(shift_pressed ? 'T' : 't');
             break;
         case 0x15:
-            printString("Y");
+            printChar(shift_pressed ? 'Y' : 'y');
             break;
         case 0x16:
-            printString("U");
+            printChar(shift_pressed ? 'U' : 'u');
             break;
         case 0x17:
-            printString("I");
+            printChar(shift_pressed ? 'I' : 'i');
             break;
         case 0x18:
-            printString("O");
+            printChar(shift_pressed ? 'O' : 'o');
             break;
         case 0x19:
-            printString("P");
+            printChar(shift_pressed ? 'P' : 'p');
             break;
         case 0x1A:
-            printString("[");
+            printChar(shift_pressed ? '{' : '[');
             break;
         case 0x1B:
-            printString("]");
+            printChar(shift_pressed ? '}' : ']');
             break;
         case 0x1C:
             //printString("ENTER");
@@ -99,82 +100,83 @@ void print_letter(uint8_t scancode) {
             printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
             break;
         case 0x1E:
-            printString("A");
+            printChar(shift_pressed ? 'A' : 'a');
             break;
         case 0x1F:
-            printString("S");
+            printChar(shift_pressed ? 'S' : 's');
             break;
         case 0x20:
-            printString("D");
+            printChar(shift_pressed ? 'D' : 'd');
             break;
         case 0x21:
-            printString("F");
+            printChar(shift_pressed ? 'F' : 'f');
             break;
         case 0x22:
-            printString("G");
+            printChar(shift_pressed ? 'G' : 'g');
             break;
         case 0x23:
-            printString("H");
+            printChar(shift_pressed ? 'H' : 'h');
             break;
         case 0x24:
-            printString("J");
+            printChar(shift_pressed ? 'J' : 'j');
             break;
         case 0x25:
-            printString("K");
+            printChar(shift_pressed ? 'K' : 'k');
             break;
         case 0x26:
-            printString("L");
+            printChar(shift_pressed ? 'L' : 'l');
             break;
         case 0x27:
-            printString(";");
+            printChar(shift_pressed ? ':' : ';');
             break;
         case 0x28:
-            printString("'");
+            printChar(shift_pressed ? '"' : '\'');
             break;
         case 0x29:
-            printString("`");
+            printChar(shift_pressed ? '~' : '`');
             break;
         case 0x2A:
             //printString("LShift");
+            shift_pressed = 32;
             break;
         case 0x2B:
             printString("\\");
             break;
         case 0x2C:
-            printString("Z");
+            printChar(shift_pressed ? 'Z' : 'z');
             break;
         case 0x2D:
-            printString("X");
+            printChar(shift_pressed ? 'X' : 'x');
             break;
         case 0x2E:
-            printString("C");
+            printChar(shift_pressed ? 'C' : 'c');
             break;
         case 0x2F:
-            printString("V");
+            printChar(shift_pressed ? 'V' : 'v');
             break;
         case 0x30:
-            printString("B");
+            printChar(shift_pressed ? 'B' : 'b');
             break;
         case 0x31:
-            printString("N");
+            printChar(shift_pressed ? 'N' : 'n');
             break;
         case 0x32:
-            printString("M");
+            printChar(shift_pressed ? 'M' : 'm');
             break;
         case 0x33:
-            printString(",");
+            printChar(shift_pressed ? '<' : ',');
             break;
         case 0x34:
-            printString(".");
+            printChar(shift_pressed ? '>' : '.');
             break;
         case 0x35:
-            printString("/");
+            printChar(shift_pressed ? '?' : '/');
             break;
         case 0x36:
             //printString("Rshift");
             break;
         case 0x37:
-            printString("*");
+            printString("*"); // Numpad multiply
             break;
         case 0x38:
             //printString("LAlt");
@@ -182,19 +184,20 @@ void print_letter(uint8_t scancode) {
         case 0x39:
             printString(" ");
             break;
-/*        default:
-            * 'keuyp' event corresponds to the 'keydown' + 0x80
-             * it may still be a scancode we haven't implemented yet, or
-             * maybe a control/escape sequence 
+        default:
+            // 'keuyp' event corresponds to the 'keydown' + 0x80
+            // it may still be a scancode we haven't implemented yet, or
+            // maybe a control/escape sequence 
             if (scancode <= 0x7f) {
                 printString("Unknown key down");
             } else if (scancode <= 0x39 + 0x80) {
-                printString("key up ");
-                print_letter(scancode - 0x80);
+                if(scancode == 0x2A + 0x80) {
+                    shift_pressed = 0; // reset shift on key up
+                }
+                //printString("key up ");
+                //print_letter(scancode - 0x80);
             } else printString("Unknown key up");
             break;
-*	keybuffer[size] = 'a';
-	size++;*/
     }
 }
 
