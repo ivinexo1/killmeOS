@@ -89,7 +89,7 @@ void printChar(unsigned char c){
     terminal_column += 1;
     update_cursor(get_cursor_position() + 1);
   }
-  if(terminal_column > VGA_WIDTH){
+  if(terminal_column == VGA_WIDTH){
     terminal_column = 0;
     terminal_row++;
   }
