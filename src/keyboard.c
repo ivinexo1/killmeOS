@@ -11,7 +11,7 @@ void print_letter(uint8_t scancode) {
             printString("ERROR");
             break;
         case 0x1:
-            printString("ESC");
+            //printString("ESC");
             break;
         case 0x2:
             printString("1");
@@ -50,10 +50,10 @@ void print_letter(uint8_t scancode) {
             printString("+");
             break;
         case 0x0E:
-            printString("Backspace");
+            //printString("Backspace");
             break;
         case 0x0F:
-            printString("Tab");
+            printString("   ");
             break;
         case 0x10:
             printString("Q");
@@ -135,7 +135,7 @@ void print_letter(uint8_t scancode) {
             printString("`");
             break;
         case 0x2A:
-            printString("LShift");
+            //printString("LShift");
             break;
         case 0x2B:
             printString("\\");
@@ -171,16 +171,16 @@ void print_letter(uint8_t scancode) {
             printString("/");
             break;
         case 0x36:
-            printString("Rshift");
+            //printString("Rshift");
             break;
         case 0x37:
-            printString("Keypad *");
+            printString("*");
             break;
         case 0x38:
-            printString("LAlt");
+            //printString("LAlt");
             break;
         case 0x39:
-            printString("Space");
+            printString(" ");
             break;
 /*        default:
             * 'keuyp' event corresponds to the 'keydown' + 0x80
