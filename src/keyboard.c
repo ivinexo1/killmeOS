@@ -3,6 +3,9 @@
 #include "../include/isr.h"
 #include "../include/vga.h"
 
+int keybuffer[80] = {0};
+int keybuffer_size = 0;
+
 void print_letter(uint8_t scancode) {
     switch (scancode) {
         case 0x0:
@@ -45,43 +48,43 @@ void print_letter(uint8_t scancode) {
             printString("-");
             break;
         case 0x0D:
-            printString("+");
+            printString("="); // 'Shift + =' => '+'
             break;
         case 0x0E:
-            printString("Backspace");
+            //printString("Backspace");
             break;
         case 0x0F:
-            printString("Tab");
+            printString("   "); // tab
             break;
         case 0x10:
-            printString("Q");
+            printString("q");
             break;
         case 0x11:
-            printString("W");
+            printString("w");
             break;
         case 0x12:
-            printString("E");
+            printString("e");
             break;
         case 0x13:
-            printString("R");
+            printString("r");
             break;
         case 0x14:
-            printString("T");
+            printString("t");
             break;
         case 0x15:
-            printString("Y");
+            printString("y");
             break;
         case 0x16:
-            printString("U");
+            printString("u");
             break;
         case 0x17:
-            printString("I");
+            printString("i");
             break;
         case 0x18:
-            printString("O");
+            printString("o");
             break;
         case 0x19:
-            printString("P");
+            printString("p");
             break;
         case 0x1A:
             printString("[");
@@ -94,34 +97,34 @@ void print_letter(uint8_t scancode) {
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
             break;
         case 0x1D:
-            printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
+            //printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
             break;
         case 0x1E:
-            printString("A");
+            printString("a");
             break;
         case 0x1F:
-            printString("S");
+            printString("s");
             break;
         case 0x20:
-            printString("D");
+            printString("d");
             break;
         case 0x21:
-            printString("F");
+            printString("f");
             break;
         case 0x22:
-            printString("G");
+            printString("g");
             break;
         case 0x23:
-            printString("H");
+            printString("h");
             break;
         case 0x24:
-            printString("J");
+            printString("j");
             break;
         case 0x25:
-            printString("K");
+            printString("k");
             break;
         case 0x26:
-            printString("L");
+            printString("l");
             break;
         case 0x27:
             printString(";");
@@ -133,31 +136,31 @@ void print_letter(uint8_t scancode) {
             printString("`");
             break;
         case 0x2A:
-            printString("LShift");
+            //printString("LShift");
             break;
         case 0x2B:
             printString("\\");
             break;
         case 0x2C:
-            printString("Z");
+            printString("z");
             break;
         case 0x2D:
-            printString("X");
+            printString("x");
             break;
         case 0x2E:
-            printString("C");
+            printString("c");
             break;
         case 0x2F:
-            printString("V");
+            printString("v");
             break;
         case 0x30:
-            printString("B");
+            printString("b");
             break;
         case 0x31:
-            printString("N");
+            printString("n");
             break;
         case 0x32:
-            printString("M");
+            printString("m");
             break;
         case 0x33:
             printString(",");
@@ -169,16 +172,16 @@ void print_letter(uint8_t scancode) {
             printString("/");
             break;
         case 0x36:
-            printString("Rshift");
+            //printString("Rshift");
             break;
         case 0x37:
-            printString("Keypad *");
+            printString("*");
             break;
         case 0x38:
-            printString("LAlt");
+            //printString("LAlt");
             break;
         case 0x39:
-            printString("Space");
+            printString(" ");
             break;
         // default:
         //     /* 'keuyp' event corresponds to the 'keydown' + 0x80
