@@ -13,7 +13,8 @@ void main() {
   setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
   initTerminal();
   init_keyboard();
-//  asm volatile("int $32");
+  //printString("killmeOS Shell v0.1");
+  //asm volatile("int $32");
 
   
   return;

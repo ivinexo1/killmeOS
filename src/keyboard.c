@@ -189,14 +189,14 @@ void print_letter(uint8_t scancode) {
             // it may still be a scancode we haven't implemented yet, or
             // maybe a control/escape sequence 
             if (scancode <= 0x7f) {
-                printString("Unknown key down");
+                printString("<?>"); // unknown key down. � neni supported, dost smutne
             } else if (scancode <= 0x39 + 0x80) {
                 if(scancode == 0x2A + 0x80) {
                     shift_pressed = 0; // reset shift on key up
                 }
                 //printString("key up ");
                 //print_letter(scancode - 0x80);
-            } else printString("Unknown key up");
+            } else //printString(""); // unknown key up
             break;
     }
 }
