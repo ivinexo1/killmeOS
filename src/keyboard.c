@@ -62,14 +62,9 @@ void print_letter(uint8_t scancode) {
             keybuff_pointer++;
             break;
         case 0x11:
-            setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
-            printChar('I');
-            setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
-            for(int x = 0; x < MAX_SIZE; x++) printChar(keybuffer[x]);
-            setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
-            printChar('I');
-            setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
             printChar(shift_pressed ? 'W' : 'w');
+            keybuffer[keybuff_pointer] = 'w' - shift_pressed;
+            keybuff_pointer++;
             break;
         case 0x12:
             printChar(shift_pressed ? 'E' : 'e');
@@ -188,6 +183,13 @@ void print_letter(uint8_t scancode) {
             shift_pressed = 32;
             break;
         case 0x2B:
+            setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
+            printString("\nI");
+            setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
+            for(int x = 0; x < MAX_SIZE; x++) printChar(keybuffer[x]);
+            setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
+            printString("I\n");
+            setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
             printString("\\");
             break;
         case 0x2C:
