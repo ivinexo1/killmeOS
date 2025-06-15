@@ -177,6 +177,7 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x29:
             printChar(shift_pressed ? '~' : '`');
+	          outw(0x604, 0x2000);
             break;
         case 0x2A:
             //printString("LShift");
