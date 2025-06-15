@@ -66,4 +66,4 @@ For debian: will add later but there shoud be resources on the web
 32. Now back in `nasmpath.bat` enter `cd C:\Users\[your name]\Documents\GitHub\killmeOS\build`
 33. `"C:\Program Files\qemu\qemu-system-x86_64.exe" -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M`
 34. If you've done everything correctly you should now see a QEMU instance running killmeOS :DD
-![image](https://github.com/user-attachments/assets/0d9bb806-6b12-4eef-ad4e-84a251e3b574)
+![Screenshot 2025-06-15 092240](https://github.com/user-attachments/assets/36cddfb8-b96f-42f5-b083-df7f5638c9e0)
