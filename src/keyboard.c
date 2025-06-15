@@ -97,7 +97,7 @@ void print_letter(uint8_t scancode) {
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
             break;
         case 0x1D:
-            printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
+            //printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
             break;
         case 0x1E:
             printChar(shift_pressed ? 'A' : 'a');

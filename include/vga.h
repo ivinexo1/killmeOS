@@ -43,3 +43,5 @@ void initTerminal();
 void printString(const char*);
 
 void printChar(unsigned char);
+
+void shellPrompt();

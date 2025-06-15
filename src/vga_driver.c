@@ -120,3 +120,8 @@ void printString(const char* msg){
     printChar(msg[i]);
   }
 }
+void shellPrompt() {
+  printString("<killmeOS> ~ ");
+  get_cursor_position() + 14;
+  return;
+}
