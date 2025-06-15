@@ -9,4 +9,5 @@ void init_keyboard();
 #define MAX_SIZE 80
 
 extern int keybuffer[MAX_SIZE];
+extern int keybuff_pointer;
 extern int shift_pressed;

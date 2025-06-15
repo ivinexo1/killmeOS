@@ -271,6 +271,7 @@ irq0:
 	jmp irq_common_stub
 
 irq1:
+  cli
 	push byte 1
 	push byte 33
 	jmp irq_common_stub
@@ -350,6 +351,7 @@ irq15:
 [extern irq_handler]
 irq_common_stub:
     ; 1. Save CPU state
+    cli
     pusha
     mov ax, ds
     push eax
