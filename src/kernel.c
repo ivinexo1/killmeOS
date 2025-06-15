@@ -13,7 +13,7 @@ void main() {
   setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
   initTerminal();
   init_keyboard();
-  printString("killmeOS Shell\nCopyright (c) 2025 killmeOS dev under MIT License");
+  printString("killmeOS Shell\nCopyright (c) 2025 killmeOS dev under MIT License\nSHELL> ");
   //asm volatile("int $32");
   
   return;

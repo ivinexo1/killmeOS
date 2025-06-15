@@ -95,6 +95,7 @@ void print_letter(uint8_t scancode) {
         case 0x1C:
             //printString("ENTER");
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
+            printString("SHELL> ");
             break;
         case 0x1D:
             //printString("LCtrl"); //Namiesto pisania by to mali byt shortcuts.. to asi budeme moct robit pomocou key buffera + check pri switchcase ze sa nedrzi ctrl
