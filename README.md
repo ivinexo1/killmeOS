@@ -67,3 +67,4 @@ For debian: will add later but there shoud be resources on the web
 33. `"C:\Program Files\qemu\qemu-system-x86_64.exe" -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M`
 34. If you've done everything correctly you should now see a QEMU instance running killmeOS :DD
 ![Screenshot 2025-06-15 190038](https://github.com/user-attachments/assets/cbbee6d2-4410-4dd4-8474-acefd387434d)
+![IMG_6205](https://github.com/user-attachments/assets/aab3c12b-c0aa-4c2e-b08b-06011d0b5e78)
