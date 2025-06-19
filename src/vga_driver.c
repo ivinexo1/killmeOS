@@ -84,9 +84,14 @@ void printChar(unsigned char c){
     uint16_t linepos = get_cursor_position() % VGA_WIDTH;
     update_cursor(get_cursor_position() + VGA_WIDTH - linepos);
   }else if (c == '\r') {
+    if (terminal_column == 0) {
+      terminal_column = VGA_WIDTH;
+      terminal_row--;
+    }
     size_t index = (VGA_WIDTH*terminal_row) + terminal_column - 1;
     terminal_buffer[index] = (terminal_color << 8) | 0;
     terminal_column--;
+
     update_cursor(get_cursor_position() - 1);
   }else{
     size_t index = (VGA_WIDTH*terminal_row) + terminal_column;
