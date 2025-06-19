@@ -1,1 +1,1 @@
-sudo dd if=OS.bin of=/dev/sdb && sync
+sudo dd if=OS.bin of=$1 && sync
