@@ -6,8 +6,6 @@
 
 void main() {
   isr_install();
-  printString("Hello\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorld");
-
   asm volatile("sti");
   enable_cursor(0, 15);
   setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);

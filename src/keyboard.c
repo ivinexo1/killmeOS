@@ -14,6 +14,7 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x1:
             //printString("ESC");
+            int x = 1/0;
             break;
         case 0x2:
           if(shift_pressed == 32){
@@ -123,6 +124,11 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x0E:
             //printString("Backspace");
+            if (keybuffer[0] != 0) {
+              printChar('\r');
+              keybuff_pointer--;
+              keybuffer[keybuff_pointer] = 0;
+            }
             break;
         case 0x0F:
             printString("   ");
@@ -310,6 +316,7 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x36:
             //printString("Rshift");
+            shift_pressed = 32;
             break;
         case 0x37:
             printString("*"); // Numpad multiply
@@ -329,7 +336,7 @@ void print_letter(uint8_t scancode) {
             if (scancode <= 0x7f) {
                 printString("<?>"); // unknown key down. � neni supported, dost smutne
             } else if (scancode <= 0x39 + 0x80) {
-                if(scancode == 0x2A + 0x80) {
+                if((scancode == 0x2A + 0x80) || (scancode == 0x36 + 0x80)) {
                     shift_pressed = 0; // reset shift on key up
                 }
                 //printString("key up ");
