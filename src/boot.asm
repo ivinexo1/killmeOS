@@ -22,6 +22,17 @@ mov ah, 0
 mov al, 0x3
 int 0x10
 
+mov dx, 0x3da
+in  al, dx
+mov dx, 0x3c0
+mov al, 0x30
+out dx, al
+inc dx
+in al, dx
+and al, 0xf7
+dec dx
+out dx, al
+
 CODE_SEG equ GDT_code - GDT_start
 DATA_SEG equ GDT_data - GDT_start
 

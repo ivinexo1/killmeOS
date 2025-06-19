@@ -16,33 +16,104 @@ void print_letter(uint8_t scancode) {
             //printString("ESC");
             break;
         case 0x2:
-            printChar(shift_pressed ? '!' : '1');
-            break;
+          if(shift_pressed == 32){
+            printChar('!');
+            keybuffer[keybuff_pointer] = '!';
+          }else{
+            printChar('1');
+            keybuffer[keybuff_pointer] = '1';
+          }
+          keybuff_pointer++;
+           break;
         case 0x3:
-            printChar(shift_pressed ? '@' : '2');
+          if(shift_pressed == 32){
+            printChar('@');
+            keybuffer[keybuff_pointer] = '@';
+          }else{
+            printChar('2');
+            keybuffer[keybuff_pointer] = '2';
+          }
+          keybuff_pointer++;
             break;
         case 0x4:
-            printChar(shift_pressed ? '#' : '3');
+          if(shift_pressed == 32){
+            printChar('#');
+            keybuffer[keybuff_pointer] = '#';
+          }else{
+            printChar('3');
+            keybuffer[keybuff_pointer] = '3';
+          }
+          keybuff_pointer++;
+          break;
         case 0x5:
-            printChar(shift_pressed ? '$' : '4');
+          if(shift_pressed == 32){
+            printChar('$');
+            keybuffer[keybuff_pointer] = '$';
+          }else{
+            printChar('4');
+            keybuffer[keybuff_pointer] = '4';
+          }
+          keybuff_pointer++;
             break;
         case 0x6:
-            printChar(shift_pressed ? '%' : '5');
+          if(shift_pressed == 32){
+            printChar('%');
+            keybuffer[keybuff_pointer] = '%';
+          }else{
+            printChar('5');
+            keybuffer[keybuff_pointer] = '5';
+          }
+          keybuff_pointer++;
             break;
         case 0x7:
-            printChar(shift_pressed ? '^' : '6');
+          if(shift_pressed == 32){
+            printChar('^');
+            keybuffer[keybuff_pointer] = '^';
+          }else{
+            printChar('6');
+            keybuffer[keybuff_pointer] = '6';
+          }
+          keybuff_pointer++;
             break;
         case 0x8:
-            printChar(shift_pressed ? '&' : '7');
+          if(shift_pressed == 32){
+            printChar('&');
+            keybuffer[keybuff_pointer] = '&';
+          }else{
+            printChar('7');
+            keybuffer[keybuff_pointer] = '7';
+          }
+          keybuff_pointer++;
             break;
         case 0x9:
-            printChar(shift_pressed ? '*' : '8');
+           if(shift_pressed == 32){
+            printChar('*');
+            keybuffer[keybuff_pointer] = '*';
+          }else{
+            printChar('8');
+            keybuffer[keybuff_pointer] = '8';
+          }
+          keybuff_pointer++;     
             break;
         case 0x0A:
-            printChar(shift_pressed ? '(' : '9');
+          if(shift_pressed == 32){
+            printChar('(');
+            keybuffer[keybuff_pointer] = '(';
+          }else{
+            printChar('9');
+            keybuffer[keybuff_pointer] = '9';
+          }
+          keybuff_pointer++;
             break;
         case 0x0B:
-            printChar(shift_pressed ? ')' : '0');
+          if(shift_pressed == 32){
+            printChar(')');
+            keybuffer[keybuff_pointer] = ')';
+          }else{
+            printChar('0');
+            keybuffer[keybuff_pointer] = '0';
+          }
+          keybuff_pointer++;
             break;
         case 0x0C:
             printChar(shift_pressed ? '_' : '-');
@@ -189,9 +260,9 @@ void print_letter(uint8_t scancode) {
             setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
             for(int x = 0; x < MAX_SIZE; x++) printChar(keybuffer[x]);
             setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
-            printString("I\n");
+            printString("I");
             setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
-            printString("\\");
+//            printString("\\");
             break;
         case 0x2C:
             printChar(shift_pressed ? 'Z' : 'z');
