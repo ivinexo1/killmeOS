@@ -16,7 +16,7 @@ int buffer_contains_word(const int *buffer, int blength, const char *word) {
     for (int i = 0; i <= blength - wlength; i++) {
         int match = 1;
         for (int j = 0; j < wlength; j++) {
-            if (buffer[i + j] != word[j]) {
+            if (buffer[i + j] != word[j]) { //ak sa character v keybufferi nerovna s characterom v slove == 0
                 match = 0;
                 break;
             }
