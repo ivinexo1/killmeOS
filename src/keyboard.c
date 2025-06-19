@@ -194,8 +194,8 @@ void print_letter(uint8_t scancode) {
             //printString("ENTER");
             //Add Executing function
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
-            printString("SHELL> ");
             parse(keybuff_pointer);
+            printString("SHELL> ");
             for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
             keybuff_pointer = 0;
             break;
@@ -256,7 +256,6 @@ void print_letter(uint8_t scancode) {
             break;
         case 0x29:
             printChar(shift_pressed ? '~' : '`');
-	          outw(0x604, 0x2000);
             break;
         case 0x2A:
             //printString("LShift");

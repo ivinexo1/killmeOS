@@ -28,9 +28,10 @@ int buffer_contains_word(const int *buffer, int blength, const char *word) {
 
 void parse(int blength) {
     if (buffer_contains_word(keybuffer, blength, "help")) {
-        printString("'help' cmd\nSHELL>");
+        printString("'help' cmd\n");
     }
     if (buffer_contains_word(keybuffer, blength, "shutdown")) {
-        printString("'shutdown' cmd\nSHELL>");
+        outw(0x604, 0x2000);
+        printString("'shutdown' cmd\n");
     }
 }
