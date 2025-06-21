@@ -115,9 +115,10 @@ void initTerminal(){
   terminal_column = 0;
   terminal_row = 0;
   size_t index;
-  for (int x = 0 ; x < VGA_HEIGHT; x++) {
-    for (int y = 0; y < VGA_WIDTH; y++) {
-      printChar(0);      
+  for (int x = 0 ; x < VGA_WIDTH; x++) {
+    for (int y = 0; y < VGA_HEIGHT; y++) {
+      index = (VGA_WIDTH*y) + x;
+      terminal_buffer[index] = (terminal_color << 8) | 0;
     }
   }
   terminal_column = 0;

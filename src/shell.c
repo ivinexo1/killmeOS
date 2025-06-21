@@ -34,4 +34,7 @@ void parse(int blength) {
         outw(0x604, 0x2000);
         printString("'shutdown' cmd\n");
     }
+    if (buffer_contains_word(keybuffer, blength, "error")) {
+      int x = 1/0;
+    }
 }
