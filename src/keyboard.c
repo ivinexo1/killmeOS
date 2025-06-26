@@ -4,7 +4,7 @@
 #include "../include/vga.h"
 #include "../include/shell.h"
 
-int keybuffer[MAX_SIZE];
+char keybuffer[MAX_SIZE];
 int shift_pressed = 0; // 0 - shift not pressed, 32 - shift pressed
 int keybuff_pointer = 0;
 
@@ -194,7 +194,8 @@ void print_letter(uint8_t scancode) {
             //printString("ENTER");
             //Add Executing function
             printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
-            parse(keybuff_pointer);
+            // parse(keybuff_pointer);
+            parsedShell();
             printString("SHELL> ");
             for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
             keybuff_pointer = 0;

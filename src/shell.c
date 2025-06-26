@@ -5,36 +5,41 @@
 #include <stdbool.h>
 #include "../include/keyboard.h"
 
-// ako certifikovany js dev je mi uplne jedno ze toto nebude asi dako optimalne ale idc :p
-
-// 1 found, else 0
-// i loop => checkuje kazdu starting poziciu v buffery
-// j loop => checkuje kazdy char v slove
-int buffer_contains_word(const int *buffer, int blength, const char *word) {
+int parsedShell() {
     int wlength = 0;
-    while (word[wlength] != '\0') wlength++;
-    for (int i = 0; i <= blength - wlength; i++) {
-        int match = 1;
-        for (int j = 0; j < wlength; j++) {
-            if (buffer[i + j] != word[j]) { //ak sa character v keybufferi nerovna s characterom v slove == 0
-                match = 0;
-                break;
-            }
-        }
-        if (match) return 1;
+    char word[256];
+    int words_count = 0;
+    char *words[256];
+    // find length of the word [until whitespace]
+    while (keybuffer[wlength] == ' ' || keybuffer[wlength] == '\n' || keybuffer[wlength] == '\0' || keybuffer[wlength] == '\t') {
+        wlength++;
     }
-    return 0;
-}
+    // keybuffer => word
+    for (int i = 0; i < wlength; i++) {
+        word[i] = keybuffer[i];
+    }
+    word[wlength] = '\0';
+    words[words_count] = word;
+    words_count++;
+    for (int i = 0; i < wlength; i++) {
+        word[i] = '\0';
+    }
 
-void parse(int blength) {
-    if (buffer_contains_word(keybuffer, blength, "help")) {
-        printString("'help' cmd\n");
+    // now multiple words D:
+    int j = 0;
+    words_count = 0;
+    while (keybuffer[j] != '\0') {
+        // skip whitespace
+        while (keybuffer[j] == ' ' || keybuffer[j] == '\n' || keybuffer[j] == '\t') j++;
+        if (keybuffer[j] == '\0') break;
+        words[words_count++] = &keybuffer[j];
+        // move to end of word
+        while (keybuffer[j] != ' ' && keybuffer[j] != '\n' && keybuffer[j] != '\t' && keybuffer[j] != '\0') j++;
+        if (keybuffer[j] != '\0') {
+            keybuffer[j] = '\0';
+            j++;
+        }
     }
-    if (buffer_contains_word(keybuffer, blength, "shutdown")) {
-        outw(0x604, 0x2000);
-        printString("'shutdown' cmd\n");
-    }
-    if (buffer_contains_word(keybuffer, blength, "error")) {
-      int x = 1/0;
-    }
+
+    printString(words[1]);
 }

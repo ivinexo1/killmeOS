@@ -8,6 +8,6 @@ void init_keyboard();
 // 80 indexes lebo to je pocet chars v riadku
 #define MAX_SIZE 256
 
-extern int keybuffer[MAX_SIZE];
+extern char keybuffer[MAX_SIZE];
 extern int keybuff_pointer;
 extern int shift_pressed;
