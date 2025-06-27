@@ -41,8 +41,6 @@ int parsedShell() {
         }
     }
 
-    printString(words[1]); //DEBUG
-
     // TODO:
     // first word calls a function which takes the rest of the words as arguments
     // void runCmds() {
