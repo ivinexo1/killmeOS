@@ -34,25 +34,12 @@ int parsedShell() {
         if (keybuffer[j] == '\0') break;
         words[words_count++] = &keybuffer[j];
         // move to end of word
-        while (keybuffer[j] == ' ' || keybuffer[j] == '\n' || keybuffer[j] == '\t' || keybuffer[j] == '\0') j++;
+        while (keybuffer[j] != ' ' && keybuffer[j] != '\n' && keybuffer[j] != '\t' && keybuffer[j] != '\0') j++;
         if (keybuffer[j] != '\0') {
             keybuffer[j] = '\0';
             j++;
         }
     }
 
-    // TODO:
-    // first word calls a function which takes the rest of the words as arguments
-    // void runCmds() {
-    //     switch (words[0]) {
-    //         case "system":
-    //             //call system func
-    //             break;
-    //         case "debug":
-    //             //call debug func
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
+    printString(words[1]);
 }
