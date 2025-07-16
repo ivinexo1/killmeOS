@@ -5,6 +5,11 @@
 #include <stdbool.h>
 #include "../include/keyboard.h"
 
+void sys(char words1[], char words2[]) {
+    // sys crash => x/0
+    // idk if i should use another switchcase
+}
+
 int parsedShell() {
     int wlength = 0;
     char word[256];
