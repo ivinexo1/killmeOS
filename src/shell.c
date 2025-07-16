@@ -5,9 +5,9 @@
 #include <stdbool.h>
 #include "../include/keyboard.h"
 
-void sys(char words1[], char words2[]) {
-    // sys crash => x/0
-    // idk if i should use another switchcase
+void sys(char words[256]) {
+    //maybe i could use a loop? idk
+    for (int i = 1; i < 256; i++) {}
 }
 
 int parsedShell() {
@@ -49,7 +49,7 @@ int parsedShell() {
     // printString(words[1]); <-- DEBUG
     switch (words[0]) {
         case "sys":
-            sys(words[1],words[2]);
+            sys(words);
             break;
         case "pacman":
             break;
