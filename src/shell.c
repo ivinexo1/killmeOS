@@ -42,18 +42,15 @@ int parsedShell() {
     }
 
     // printString(words[1]); <-- DEBUG
-    cmd();
-}
-
-// robil som tuto blbost na mobile testovat to budem neskor
-
-void cmd() {
     switch (words[0]) {
         case "sys":
+            sys(words[1],words[2]);
             break;
-        case "pacman": // <-- RENAME
+        case "pacman":
             break;
         default:
             break;
-   }
+    }
 }
+
+// robil som tuto blbost na mobile testovat to budem neskor ... robit to bez tabu je doslova torture
