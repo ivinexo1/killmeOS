@@ -43,11 +43,11 @@ int parsedShell() {
         }
     }
 
-    // 😲
+    //
     if (words[0] == "sys") {
         if (words[1] == "echo") {}
         if (words[1] == "help") {
-            printString("\nhelpful text")
+            printString("\nhelpful text");
         }
     }
 }
