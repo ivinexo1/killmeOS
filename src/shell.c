@@ -15,6 +15,8 @@ void sys(char words[256]) {
                 printString(words[i]);
             }
             break; // print remaining words
+        default:
+            break;
     }
 }
 
