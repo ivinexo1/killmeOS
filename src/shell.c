@@ -5,20 +5,7 @@
 #include <stdbool.h>
 #include "../include/keyboard.h"
 
-void sys(char words[256]) {
-    switch (words[1]) {
-        case "help":
-            printString("list of sys commands:\nsys help\nsys echo");
-            break; // print list of commands
-        case "echo":
-            for (i = 2; i < 256; i++) {
-                printString(words[i]);
-            }
-            break; // print remaining words
-        default:
-            break;
-    }
-}
+void sys() {}
 
 int parsedShell() {
     int wlength = 0;
@@ -56,15 +43,12 @@ int parsedShell() {
         }
     }
 
-    // printString(words[1]); <-- DEBUG
-    switch (words[0]) {
-        case "sys":
-            sys(words);
-            break;
-        case "pacman":
-            break;
-        default:
-            break;
+    // 😲
+    if (words[0] == "sys") {
+        if (words[1] == "echo") {}
+        if (words[1] == "help") {
+            printString("\nhelpful text")
+        }
     }
 }
 
