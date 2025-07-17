@@ -6,8 +6,16 @@
 #include "../include/keyboard.h"
 
 void sys(char words[256]) {
-    //maybe i could use a loop? idk
-    for (int i = 1; i < 256; i++) {}
+    switch (words[1]) {
+        case "help":
+            printString("list of sys commands:\nsys help\nsys echo");
+            break; // print list of commands
+        case "echo":
+            for (i = 2; i < 256; i++) {
+                printString(words[i]);
+            }
+            break; // print remaining words
+    }
 }
 
 int parsedShell() {
