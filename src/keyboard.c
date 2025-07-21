@@ -150,8 +150,8 @@ void print_letter(uint8_t scancode) {
         case 0x1C:
           // ENTER
           printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
-          printString("SHELL> ");
           if(keybuffer[0] != 0) { parsedShell(); }
+          printString("SHELL> ");
           for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
           keybuff_pointer = 0;
           break;
