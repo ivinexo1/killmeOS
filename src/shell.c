@@ -5,8 +5,6 @@
 #include <stdbool.h>
 #include "../include/keyboard.h"
 
-void sys() {}
-
 int parsedShell() {
     int wlength = 0;
     char word[256];
@@ -43,10 +41,6 @@ int parsedShell() {
         }
     }
 
-    if (words[0] == "sys") {
-        if (words[1] == "echo") {}
-        if (words[1] == "help") {
-            printString("\nhelpful text");
-        }
-    }
+    // if(words[0] == 'sys') { printString(words[0]); }
+    // this is incorrect and doesnt work
 }
