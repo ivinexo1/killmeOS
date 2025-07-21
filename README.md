@@ -9,7 +9,12 @@
   <img src="https://github.com/user-attachments/assets/c319f234-fbf6-473a-9af1-dc54adec1504"></img>
 </div>
 
-Open-source OS made from scratch.
+Open-source OS made from scratch
 
-![Screenshot 2025-06-15 190038](https://github.com/user-attachments/assets/cbbee6d2-4410-4dd4-8474-acefd387434d)
-![IMG_6205](https://github.com/user-attachments/assets/aab3c12b-c0aa-4c2e-b08b-06011d0b5e78)
+## Questions & other stuff
+- How do I setup this project?
+  > [Tutorial can be found on the Wiki](https://github.com/ivinexo1/killmeOS/wiki/Setup)
+- Where can I join the Discord?
+  > [killmeOS discord](http://discord.gg/cTumjQQkUp)
+
+> TODO: update README.md with screenshots and better formatting
