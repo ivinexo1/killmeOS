@@ -1,1 +1,2 @@
-void parsedShell();
+int parsedShell();
+int commandExec();

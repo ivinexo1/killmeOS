@@ -47,17 +47,22 @@ int parsedShell() {
     // this looks ugly as shit
     // TODO: command by mal automaticky byt slovo, a nie takto shit definovanie
     // + by to mohlo fungovat na roznych poziciach a nie iba [0]
-    command[0] = 's';
-    command[1] = 'y';
-    command[2] = 's';
-    int x = 0;
-    int y = 0;
-    if (command[x] == letter[y]) {
-        x++;
-        y++;
-    } else {
-        printString("idk\n");
+    int commandExec() {
+        // a == slovo
+        // b == kolkate slovo
+        command[0] = 's';
+        command[1] = 'y';
+        command[2] = 's';
+        int x = 0;
+        int y = 0;
+        if (command[x] == letter[y]) {
+            x++;
+            y++;
+        } else {
+            printString("idk\n");
+        }
     }
 
+    commandExec();
     return 0;
 }
