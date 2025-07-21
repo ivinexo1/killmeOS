@@ -13,4 +13,3 @@ cat ./binfiles/boot.bin ./binfiles/full_kernel.bin >./binfiles/everything.bin
 cat ./binfiles/everything.bin zeroes.bin >OS.bin
 qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M
 #qemu-system-i386 -fda OS.bin
-

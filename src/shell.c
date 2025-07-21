@@ -43,7 +43,6 @@ int parsedShell() {
         }
     }
 
-    //
     if (words[0] == "sys") {
         if (words[1] == "echo") {}
         if (words[1] == "help") {
@@ -51,5 +50,3 @@ int parsedShell() {
         }
     }
 }
-
-// robil som tuto blbost na mobile testovat to budem neskor ... robit to bez tabu je doslova torture
