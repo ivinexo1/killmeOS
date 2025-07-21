@@ -9,7 +9,7 @@ int parsedShell() {
     int wlength = 0;
     char word[256];
     int words_count = 0;
-    char *words[256];
+    char* words[256];
     // find length of the word [until whitespace]
     while (keybuffer[wlength] == ' ' || keybuffer[wlength] == '\n' || keybuffer[wlength] == '\0' || keybuffer[wlength] == '\t') {
         wlength++;
@@ -41,6 +41,6 @@ int parsedShell() {
         }
     }
 
-    // if(words[0] == 'sys') { printString(words[0]); }
-    // this is incorrect and doesnt work
+    // if (*words == 'sys') { printString("funguje to!!"); }
+    printString(words[0]);
 }
