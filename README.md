@@ -17,4 +17,4 @@ Open-source OS made from scratch
 - Where can I join the Discord?
   > [killmeOS discord](http://discord.gg/cTumjQQkUp)
 
-> TODO: update README.md with screenshots and better formatting
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/072e0721-a3fa-4b5e-a628-1a60e1012763" />
