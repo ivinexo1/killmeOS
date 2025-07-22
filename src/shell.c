@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "../include/keyboard.h"
+#include "../include/string.h" // nemame standard lib
 
 int parsedShell() {
     int wlength = 0;
@@ -44,25 +45,8 @@ int parsedShell() {
         }
     }
 
-    // this looks ugly as shit
-    // TODO: command by mal automaticky byt slovo, a nie takto shit definovanie
-    // + by to mohlo fungovat na roznych poziciach a nie iba [0]
-    int commandExec() {
-        // a == slovo
-        // b == kolkate slovo
-        command[0] = 's';
-        command[1] = 'y';
-        command[2] = 's';
-        int x = 0;
-        int y = 0;
-        if (command[x] == letter[y]) {
-            x++;
-            y++;
-        } else {
-            printString("idk\n");
-        }
+    if (strcmp(words[1], "sys") == 0) {
+        printString("funguje!!\n");
     }
-
-    commandExec();
     return 0;
 }
