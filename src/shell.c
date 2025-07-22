@@ -45,8 +45,10 @@ int parsedShell() {
         }
     }
 
-    if (strcmp(words[1], "sys") == 0) {
-        printString("funguje!!\n");
+    if (strcmp(words[0], "sys") == 0) {
+        if (strcmp(words[1], "help") == 0) {
+            printString("Available commands:\nsys help\nsys clear\nsys echo\n");
+        }
     }
     return 0;
 }
