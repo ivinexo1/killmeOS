@@ -49,6 +49,15 @@ int parsedShell() {
         if (strcmp(words[1], "help") == 0) {
             printString("Available commands:\nsys help\nsys clear\nsys echo\n");
         }
+        if (strcmp(words[1], "echo") == 0) {
+            for(int i = 2; i < words_count; i++) {
+                printString(words[i]);
+                if (i < words_count - 1) {
+                    printString(" ");
+                }
+            }
+            printString("\n");
+        }
     }
     return 0;
 }
