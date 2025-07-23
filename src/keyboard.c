@@ -205,12 +205,18 @@ void print_letter(uint8_t scancode) {
           break;
         case 0x27:
           printChar(shift_pressed ? ':' : ';');
+          keybuffer[keybuff_pointer] = ';' - shift_pressed;
+          keybuff_pointer++;
           break;
         case 0x28:
           printChar(shift_pressed ? '"' : '\'');
+          keybuffer[keybuff_pointer] = '\'' - shift_pressed;
+          keybuff_pointer++;
           break;
         case 0x29:
           printChar(shift_pressed ? '~' : '`');
+          keybuffer[keybuff_pointer] = '`' - shift_pressed;
+          keybuff_pointer++;
           break;
         case 0x2A:
           // LSHIFT

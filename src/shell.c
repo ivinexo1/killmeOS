@@ -47,7 +47,7 @@ int parsedShell() {
 
     if (strcmp(words[0], "sys") == 0) {
         if (strcmp(words[1], "help") == 0) {
-            printString("Available commands:\nsys help\nsys clear\nsys echo\n");
+            printString("Available commands:\nsys help < lists available commands\nsys clear < clear terminal text\nsys echo < prints string into terminal\n");
         }
         if (strcmp(words[1], "echo") == 0) {
             for(int i = 2; i < words_count; i++) {
