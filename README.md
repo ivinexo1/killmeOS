@@ -11,10 +11,28 @@
 
 Open-source OS made from scratch
 
-## Questions & other stuff
-- How do I setup this project?
-  > [Tutorial can be found on the Wiki](https://github.com/ivinexo1/killmeOS/wiki/Setup)
-- Where can I join the Discord?
-  > [killmeOS discord](http://discord.gg/cTumjQQkUp)
+[join the killmeOS discord](http://discord.gg/cTumjQQkUp)
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/072e0721-a3fa-4b5e-a628-1a60e1012763" />
+<img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/072e0721-a3fa-4b5e-a628-1a60e1012763" />
+
+# How to setup!!
+This guide contains tutorials for both Linux and Windows 11
+## Linux 🐧
+
+1. Clone repository
+```bash
+git clone "https://github.com/ivinexo1/killmeOS/"
+```
+2. Install QEMU (for Debian : ```apt-get install qemu-system```, Arch: ```pacman -S qemu-full```) or build it yourself
+```bash
+wget https://download.qemu.org/qemu-10.0.2.tar.xz
+tar xvJf qemu-10.0.2.tar.xz
+cd qemu-10.0.2
+./configure
+make
+```
+3. Install NASM (for Debian: ```apt-get install nasm```, Arch: ```pacman -S nasm```)
+5. Install i386-elf-gcc (for Debian: add this later, Arch: ```yay i386-elf-gcc``` or ```paru i368-elf-gcc```)
+6. Navigate to the repository and run ```./makeNrun.sh```
+
+## Windows 11 🪟
