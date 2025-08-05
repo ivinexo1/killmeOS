@@ -77,7 +77,7 @@ loop loadloop
 xor ax, ax
 mov es, ax
 
-
+;get info about vesa video mode
 mov ax, 0x4f01
 mov cx, 0x118
 mov di, VesaModeInfoBlock
@@ -85,16 +85,18 @@ int 0x10
 cmp ax, 0x004f
 jne error
 
+;set vesa video mode
 mov ax, 0x4f02
 mov bx, 0x4118
 int 0x10
 cmp ax, 0x004f
 jne error
 
-
+;set gdt segments
 CODE_SEG equ GDT_code - GDT_start
 DATA_SEG equ GDT_data - GDT_start
 
+;switch to protected mode
 cli
 lgdt [GDT_descriptor]
 mov eax, cr0
@@ -103,6 +105,7 @@ mov cr0, eax
 jmp CODE_SEG:start_protected_mode
 exit:
 jmp $
+
 error:
 mov ah, 0xe
 mov al, 'F'
@@ -197,6 +200,7 @@ mov fs, ax
 mov gs, ax
 mov ebp, 0x7000
 mov esp, ebp
+;send info about vesa mode to kernel
 mov eax, [VesaModeInfoBlock.BitsPerPixel]
 and eax, 0x000000ff
 xor edx, edx
@@ -209,7 +213,7 @@ push eax
 mov eax, [VesaModeInfoBlock.LFBAddress]
 push eax
 
-
+;jump to kernel_entry
 jmp 0x10000
 
  
