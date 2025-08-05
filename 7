@@ -1,14 +1,12 @@
 [org 0x7c00]
-mov [BOOT_DISK], dl ;saving current disk number
-
-;setting up registers
+mov [BOOT_DISK], dl
+KERNEL_LOCATION equ 0x0000
 xor ax, ax
 mov es, ax
 mov ds, ax
 mov bp, 0x7000
 mov sp, bp 
 
-;loading second stage of bootloander
 mov bx, 0x7e00
 
 mov ah, 2
@@ -20,35 +18,44 @@ mov dl, [BOOT_DISK]
 int 0x13
 jc error
 
-;loading the kernel
-push 0x0000
+xor bx, bx
+mov ax, 0x1000
+mov es, ax
+mov ah, 2
+mov al, 120
+mov ch, 0
+mov dh, 0
+mov cl, 3
+mov dl, [BOOT_DISK]
+;int 0x13
+jc error
+
+push 0x0100
 push 0x1000
-push 2
-mov cx, 600
+push 3
+mov cx, 100
 loadloop:
 push cx
-
-mov ah, 0xe
-mov al, '#'
-int 0x10
-
-;converting frendly LBA address to unkind CHS address
 mov ax, [bp - 6]
 push bp
 mov bp, sp
-push ax
+push 2
 sub sp, 8
 call lbatochs
-mov ax, [bp - 6] ; sector
-mov bx, [bp - 8] ; head
-mov cx, [bp - 10]; cylinder
+mov ax, 3;[bp - 6] ; sector
+mov bx, 0;[bp - 8] ; head
+mov cx, 0;[bp - 10]; cylinder
+mov sp, bp
+push cx
+sub sp, 2
+;call printnum
 mov sp, bp
 pop bp
 
-inc word [bp - 6]
 
-;loading segment
-shl cx, 8
+;inc word [bp - 6]
+
+shl cx, 4
 add cx, ax
 mov dh, bl
 mov dl, [BOOT_DISK]
@@ -59,8 +66,6 @@ mov ah, 2
 mov al, 1
 int 0x13
 jc error
-
-;setting location for next segment to be loaded
 add word [bp - 2], 0x200
 jc .addtooffset
 pop cx
@@ -72,6 +77,7 @@ pop cx
 loop loadloop
 .endaddtooffest:
 
+;jmp $
 
 
 xor ax, ax

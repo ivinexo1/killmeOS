@@ -8,9 +8,9 @@ i386-elf-gcc -ffreestanding -m32 -W -g -c ../src/font.c -o ./objfiles/font.o
 #i386-elf-gcc -ffreestanding -m32 -g -c ../src/shell.c -o ./objfiles/shell.o
 #nasm ../src/isrhandler.asm -f elf -o ./objfiles/isrhandler.o
 nasm ../src/kernel_entry.asm -f elf -o ./objfiles/kernel_entry.o
-i386-elf-ld -o ./binfiles/full_kernel.bin -Ttext 0x10000 ./objfiles/kernel_entry.o ./objfiles/kernel.o ./objfiles/vga_driver.o ./objfiles/font.o --oformat binary
+i386-elf-ld -o ./binfiles/full_kernel.bin -Ttext 0x10000 ./objfiles/kernel_entry.o ./objfiles/kernel.o ./objfiles/vga_driver.o --oformat binary
 nasm ../src/boot.asm -f bin -o ./binfiles/boot.bin
 cat ./binfiles/boot.bin ./binfiles/full_kernel.bin >./binfiles/everything.bin
 cat ./binfiles/everything.bin zeroes.bin >OS.bin
-qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=floppy -m 128M
+qemu-system-i386 -drive format=raw,file="OS.bin",index=0,if=hdd -m 128M
 #qemu-system-i386 OS.bin

@@ -1,10 +1,44 @@
 #include "../include/vga.h"
-#include "../include/ports.h"
+//#include "../include/ports.h"
+#include "./font.c"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
 
-size_t terminal_row;
+extern uint32_t framebuffer;
+extern uint32_t bbp;
+extern uint32_t bbl;
+
+
+
+void printPixel(uint32_t x, uint32_t y, uint32_t color){
+  uint32_t index = (x*bbp) + (y*bbl);
+  *(uint32_t*)(framebuffer + index) = color;
+  return;
+}
+
+static const uint32_t a[25] = {
+  0x00000000, 0x00000000, 0x00ffffff, 0x00000000, 0x00000000,
+  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
+  0x00000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00000000,
+  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
+  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
+};
+
+void printChar(uint32_t x, uint32_t y, uint8_t letter){
+  letter -= 64;
+  uint32_t index = 0;
+  for (int j = 0; j < 40; j++) {
+    for (int i = 0; i < 40; i++) {
+      printPixel(i + x, j + y, new_piskel_87_data[24][index]);
+      index++;
+    }
+  }
+  return;
+}
+/*
+
+/*size_t terminal_row;
 size_t terminal_column;
 uint8_t terminal_color;
 uint16_t* terminal_buffer = (uint16_t*)VGA_MEMORY;
@@ -135,4 +169,4 @@ void shellPrompt() {
   printString("<killmeOS> ~ ");
   get_cursor_position() + 14;
   return;
-}
+}*/
