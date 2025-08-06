@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "../include/vga.h"
+#include "../include/string.h"
 //#include "../include/ports.h"
 //#include "../include/idt.h"
 //#include "../include/isr.h"
@@ -8,20 +9,20 @@
 void main() {
   for (int y = 0; y < 768; y++) {
     for (int x = 0; x < 1024; x++) {
-      printPixel(x, y, 0x0000ff);
+      printPixel(x, y, 0, 0, 255);
     }
   }
-//  *(uint32_t*)framebuffer = b[0];
-  uint8_t letter = 'A';
-  for (int y = 0; y < 760; y += 40) {
-    for (int x = 0; x < 1000; x += 40) {
-      printChar(x, y, letter);
-      letter++;
-      if (letter == 'Z') {
-        letter = 'A';
+  uint32_t index = 0;
+  static char string[] = "HELLO WORLDHASFHJGDFHJ";
+  for (int y = 0; y < 40; y += 40) {
+    for (int x = 0; x < 40*strlen(string); x += 40) {
+      if (string[index] != 32) {
+        printChar(x, y, string[index]);
       }
+      index++;
     }
   }
+//  printChar(0, 0, 'A');
 /*  isr_install();
   asm volatile("sti");
   enable_cursor(0, 15)k

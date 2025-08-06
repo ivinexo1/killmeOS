@@ -4,7 +4,8 @@
 
 
 
-void printPixel(uint32_t, uint32_t, uint32_t);
+void printPixel(uint32_t, uint32_t, uint8_t, uint8_t, uint8_t);
+
 void printChar(uint32_t, uint32_t, uint8_t);
 
 /*size_t strlen(const char*);

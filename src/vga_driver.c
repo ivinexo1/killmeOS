@@ -11,27 +11,29 @@ extern uint32_t bbl;
 
 
 
-void printPixel(uint32_t x, uint32_t y, uint32_t color){
+void printPixel(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b){
   uint32_t index = (x*bbp) + (y*bbl);
-  *(uint32_t*)(framebuffer + index) = color;
+  *(uint8_t*)(framebuffer + index) = b;
+  *(uint8_t*)(framebuffer + index + 1) = g;
+  *(uint8_t*)(framebuffer + index + 2) = r;
   return;
 }
 
-static const uint32_t a[25] = {
-  0x00000000, 0x00000000, 0x00ffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
-  0x00000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00000000,
-  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
-  0x00000000, 0x00ffffff, 0x00000000, 0x00ffffff, 0x00000000,
-};
-
 void printChar(uint32_t x, uint32_t y, uint8_t letter){
-  letter -= 65;
-  uint32_t index = 0;
+  uint32_t letterindex = 0;
+  if (letter >= 65) {
+    letter -= 55;
+  } else {
+    letter -= 48;
+  }
   for (int j = 0; j < 40; j++) {
     for (int i = 0; i < 40; i++) {
-      printPixel(i + x, j + y, new_piskel_87_data[letter][index]);
-      index++;
+      if (font3_data[letter][letterindex]) {
+        printPixel(x + i, y + j, 255, 255, 255);
+      } else {
+        printPixel(x + i, y + j, 0, 0, 255);
+      }
+      letterindex++;
     }
   }
   return;
