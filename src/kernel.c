@@ -12,7 +12,16 @@ void main() {
     }
   }
 //  *(uint32_t*)framebuffer = b[0];
-  printChar(0, 0, 'Z');
+  uint8_t letter = 'A';
+  for (int y = 0; y < 760; y += 40) {
+    for (int x = 0; x < 1000; x += 40) {
+      printChar(x, y, letter);
+      letter++;
+      if (letter == 'Z') {
+        letter = 'A';
+      }
+    }
+  }
 /*  isr_install();
   asm volatile("sti");
   enable_cursor(0, 15)k

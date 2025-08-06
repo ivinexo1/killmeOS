@@ -26,11 +26,11 @@ static const uint32_t a[25] = {
 };
 
 void printChar(uint32_t x, uint32_t y, uint8_t letter){
-  letter -= 64;
+  letter -= 65;
   uint32_t index = 0;
   for (int j = 0; j < 40; j++) {
     for (int i = 0; i < 40; i++) {
-      printPixel(i + x, j + y, new_piskel_87_data[24][index]);
+      printPixel(i + x, j + y, new_piskel_87_data[letter][index]);
       index++;
     }
   }
