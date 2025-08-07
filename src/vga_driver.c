@@ -1,4 +1,5 @@
 #include "../include/vga.h"
+#include "../include/string.h"
 //#include "../include/ports.h"
 #include "./font.c"
 #include <stdint.h>
@@ -38,6 +39,23 @@ void printChar(uint32_t x, uint32_t y, uint8_t letter){
   }
   return;
 }
+
+int printString(char *string){
+  uint32_t x = 0;
+  uint32_t y = 0;
+  for (uint32_t n = 0; n < strlen(string); n++) {
+    if (string[n] != 32) {
+      printChar(x*40, y*40, string[n]);
+    }
+    x++;
+    if (x >= 25) {
+      x = 0;
+      y++;
+    }
+  }
+  return 0;
+}
+
 /*
 
 /*size_t terminal_row;

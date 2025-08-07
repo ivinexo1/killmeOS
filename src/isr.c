@@ -82,46 +82,49 @@ void isr_install() {
 }
 
 char *exeption_msg[] = {
-  "Division by 0",
-  "Debug",
-  "Non Maskable Interrupt",
-  "Breakpoint",
-  "Into Detected Overflow",
-  "Out of Bounds",
-  "Invalid Opcode",
-  "No Coprocessor",
+  "DIVISION BY 0",
+  "DEBUG",
+  "NON MASKABLE INTERRUPT",
+  "BREAKPOINT",
+  "INTO DETECTED OVERFLOW",
+  "OUT OF BOUNDS",
+  "INVALID OPCODE",
+  "NO COPROCESSOR",
 
-  "Double Fault",
-  "Coprocessor Segment Overrun",
-  "Bad TSS",
-  "Segment Not Present",
-  "Stack Fault",
-  "General Protection Fault",
-  "Page Fault",
-  "Unknown Interrupt",
+  "DOUBLE FAULT",
+  "COPROCESSOR SEGMENT OVERRUN",
+  "BAD TSS",
+  "SEGMENT NOT PRESENT",
+  "STACK FAULT",
+  "GENERAL PROTECTION FAULT",
+  "PAGE FAULT",
+  "UNKNOWN INTERRUPT",
 
-  "Coprocessor Fault",
-  "Alignment Check",
-  "Machine Check",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
+  "COPROCESSOR FAULT",
+  "ALIGNMENT CHECK",
+  "MACHINE CHECK",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
 
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved",
-  "Reserved"
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
+  "RESERVED",
 };
 
 void isr_handler(registers_t *r){
-  setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLUE);
-  initTerminal();
+  for (int y = 0; y < 768; y++) {
+    for (int x = 0; x < 1024; x++) {
+      printPixel(x, y, 0, 0, 255);
+    }
+  }
   printString(exeption_msg[r->int_no]);
   asm volatile("hlt");
 }
