@@ -122,7 +122,7 @@ char *exeption_msg[] = {
 void isr_handler(registers_t *r){
   for (int y = 0; y < 768; y++) {
     for (int x = 0; x < 1024; x++) {
-      printPixel(x, y, 0, 0, 255);
+      printPixel(x, y, 0x0000ff);
     }
   }
   printString(exeption_msg[r->int_no]);

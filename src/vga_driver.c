@@ -10,48 +10,53 @@ extern uint32_t framebuffer;
 extern uint32_t bbp;
 extern uint32_t bbl;
 
+uint32_t current_X = 0;
+uint32_t current_Y = 0;
 
 
-void printPixel(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b){
+void printPixel(uint32_t x, uint32_t y, uint32_t color){
   uint32_t index = (x*bbp) + (y*bbl);
+  uint8_t b = (uint8_t)color;
+  uint8_t g = (uint8_t)(color >> 8);
+  uint8_t r = (uint8_t)(color >> 16);
   *(uint8_t*)(framebuffer + index) = b;
   *(uint8_t*)(framebuffer + index + 1) = g;
   *(uint8_t*)(framebuffer + index + 2) = r;
   return;
 }
 
-void printChar(uint32_t x, uint32_t y, uint8_t letter){
-  uint32_t letterindex = 0;
-  if (letter >= 65) {
-    letter -= 55;
-  } else {
-    letter -= 48;
-  }
-  for (int j = 0; j < 40; j++) {
-    for (int i = 0; i < 40; i++) {
-      if (font3_data[letter][letterindex]) {
-        printPixel(x + i, y + j, 255, 255, 255);
-      } else {
-        printPixel(x + i, y + j, 0, 0, 255);
-      }
-      letterindex++;
+void printChar(uint8_t letter){
+  if (letter != ' ') {
+    uint32_t letterindex = 0;
+    if (letter >= 65 && letter <= 90) {
+      letter -= 55;
+    } else if (letter <= 57){
+      letter -= 48;
+    } else {
+      letter -= 61;
     }
+    for (int j = 0; j < 40; j++) {
+      for (int i = 0; i < 40; i++) {
+        if (font3_data[letter][letterindex]) {
+          printPixel(current_X*40 + i, current_Y*40 + j, 0xffffff);
+        } else {
+          printPixel(current_X*40 + i, current_Y*40 + j, 0x0000ff);
+        }
+        letterindex++;
+      }
+    }
+  }
+  current_X++;
+  if (current_X >= 25) {
+    current_X = 0;
+    current_Y++;
   }
   return;
 }
 
 int printString(char *string){
-  uint32_t x = 0;
-  uint32_t y = 0;
   for (uint32_t n = 0; n < strlen(string); n++) {
-    if (string[n] != 32) {
-      printChar(x*40, y*40, string[n]);
-    }
-    x++;
-    if (x >= 25) {
-      x = 0;
-      y++;
-    }
+    printChar(string[n]);
   }
   return 0;
 }

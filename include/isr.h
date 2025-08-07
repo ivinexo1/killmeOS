@@ -1,4 +1,6 @@
 #pragma once
+#include <stdint.h>
+
 
 extern void isr0();
 extern void isr1();
@@ -68,7 +70,6 @@ extern void irq13();
 extern void irq14();
 extern void irq15();
 
-#include <stdint.h>
 typedef struct {
   uint32_t ds;
   uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax;

@@ -2,7 +2,7 @@
 #include "../include/ports.h"
 #include "../include/isr.h"
 #include "../include/vga.h"
-#include "../include/shell.h"
+//#include "../include/shell.h"
 
 char keybuffer[MAX_SIZE];
 int shift_pressed = 0; // 0 - shift not pressed, 32 - shift pressed
@@ -150,7 +150,7 @@ void print_letter(uint8_t scancode) {
         case 0x1C:
           // ENTER
           printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
-          parsedShell();
+//          parsedShell();
           printString("SHELL> ");
           for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
           keybuff_pointer = 0;
@@ -217,13 +217,9 @@ void print_letter(uint8_t scancode) {
           shift_pressed = 32;
           break;
         case 0x2B:
-          setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
           printString("\nI");
-          setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
           for(int x = 0; x < MAX_SIZE; x++) printChar(keybuffer[x]);
-          setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
           printString("I");
-          setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
           break;
         case 0x2C:
           printChar(shift_pressed ? 'Z' : 'z');
@@ -305,9 +301,7 @@ void print_letter(uint8_t scancode) {
             break;
       }
   if(keybuff_pointer == MAX_SIZE){
-    setTerminalColor(VGA_COLOR_RED,VGA_COLOR_WHITE);
     printString(" Max size is 256 cannot store bigger strings in buffer  ");
-    setTerminalColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
     for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
     keybuff_pointer = 0;
   }
