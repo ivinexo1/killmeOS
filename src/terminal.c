@@ -6,11 +6,15 @@
 
 uint32_t current_X = 0;
 uint32_t current_Y = 0;
+uint8_t buffer[475];
 
+void putChar(uint8_t letter){
+  if (letter == ' ') {
+    current_X++;
+  }else if (letter == '\n') {
+    current_Y++;
+  }else {
 
-
-void printChar(uint8_t letter){
-  if (letter != ' ') {
     uint32_t letterindex = 0;
     if (letter >= 65 && letter <= 90) {
       letter -= 55;
@@ -29,11 +33,33 @@ void printChar(uint8_t letter){
         letterindex++;
       }
     }
+    current_X++;
   }
-  current_X++;
+  return;
+}
+
+void printChar(uint8_t letter){
+  buffer[current_X + current_Y*25] = letter;
+  putChar(letter);
   if (current_X >= 25) {
     current_X = 0;
     current_Y++;
+  }
+  if (current_Y >= 20) {
+    current_X = 0;
+    current_Y = 0;
+    for (int i = 0; i < 475; i++) {
+      if (i < 456) {
+        buffer[i] = buffer[i+25];
+      } else {
+        buffer[i] = 0;
+      }
+    }
+    for (int i = 0; i < 474; i++) {
+      putChar(buffer[i]);
+    }
+    current_X = 0;
+    current_Y = 18;
   }
   return;
 }

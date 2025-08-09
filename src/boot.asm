@@ -24,7 +24,7 @@ jc error
 push 0x0000
 push 0x1000
 push 2
-mov cx, 430
+mov cx, 700
 loadloop:
 push cx
 
