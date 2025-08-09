@@ -2,6 +2,7 @@
 #include "../include/idt.h"
 #include "../include/isr.h"
 #include "../include/ports.h"
+#include "../include/terminal.h"
 
 isr_t interrupt_handlers[256];
 

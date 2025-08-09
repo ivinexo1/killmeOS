@@ -6,9 +6,6 @@
 
 void printPixel(uint32_t, uint32_t, uint32_t);
 
-void printChar(uint8_t);
-
-int printString(char*);
 
 /*size_t strlen(const char*);
 

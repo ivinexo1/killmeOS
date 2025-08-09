@@ -2,6 +2,7 @@
 #include "../include/ports.h"
 #include "../include/isr.h"
 #include "../include/vga.h"
+#include "../include/terminal.h"
 //#include "../include/shell.h"
 
 char keybuffer[MAX_SIZE];
