@@ -2,7 +2,6 @@
 #include "../include/idt.h"
 #include "../include/isr.h"
 #include "../include/ports.h"
-#include "../include/terminal.h"
 
 isr_t interrupt_handlers[256];
 
@@ -123,10 +122,19 @@ char *exeption_msg[] = {
 void isr_handler(registers_t *r){
   for (int y = 0; y < 768; y++) {
     for (int x = 0; x < 1024; x++) {
-      printPixel(x, y, 0x0000ff);
+      printPixel(x, y, 0xff0000);
     }
   }
-  printString(exeption_msg[r->int_no]);
+  for (uint32_t i = 0; i < r->int_no; i++) {
+    switch (i % 2) {
+      case 0:
+        printPixel(i, 0, 0xffffff);
+        break;
+      case 1:
+        printPixel(i, 0, 0x000000);
+    }
+  }
+//  printString(exeption_msg[r->int_no]);
   asm volatile("hlt");
 }
 

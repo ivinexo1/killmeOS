@@ -4,25 +4,22 @@
 #include "../include/ports.h"
 #include "../include/idt.h"
 #include "../include/isr.h"
-#include "../include/keyboard.h"
 #include "../include/terminal.h"
+#include "../include/keyboard.h"
 
 void main() {
+  isr_install();
+  asm volatile("sti");
   for (int y = 0; y < 768; y++) {
     for (int x = 0; x < 1024; x++) {
       printPixel(x, y, 0x0000ff);
     }
   }
-  uint8_t string[475];
-  for (int i = 0; i < 472; i++) {
-    string[i] = 'A';
-  }
-  string[473] = 0;
-//  printString(string);
-  isr_install();
-  asm volatile("sti");
+//  putChar(0, 0, 0xff00ff, 0x0000ff, 'a');
+  printChar('a');
+  printChar('b');
   init_keyboard();
-//  asm volatile("int $32");
+//  asm volatile("int $31");
 //  int x = 1/0;
 
 //  asm volatile("cli");

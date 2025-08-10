@@ -12,7 +12,7 @@ int keybuff_pointer = 0;
 void print_letter(uint8_t scancode) {
     switch (scancode) {
         case 0x0:
-          printString("ERROR");
+//          //printString("ERROR");
           break;
         case 0x1:
           // ESC
@@ -86,7 +86,7 @@ void print_letter(uint8_t scancode) {
           }
           break;
         case 0x0F:
-          printString("\t");
+//          //printString("\t");
           break;
         case 0x10:
           printChar(shift_pressed ? 'Q' : 'q');
@@ -152,7 +152,7 @@ void print_letter(uint8_t scancode) {
           // ENTER
           printChar('\n'); // <-- mozno toto bude better ale nechce mi zase fungovat ./makeNrun.sh vo WSL
 //          parsedShell();
-          printString("SHELL> ");
+          //printString("SHELL> ");
           for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
           keybuff_pointer = 0;
           break;
@@ -218,9 +218,9 @@ void print_letter(uint8_t scancode) {
           shift_pressed = 32;
           break;
         case 0x2B:
-          printString("\nI");
+          //printString("\nI");
           for(int x = 0; x < MAX_SIZE; x++) printChar(keybuffer[x]);
-          printString("I");
+          //printString("I");
           break;
         case 0x2C:
           printChar(shift_pressed ? 'Z' : 'z');
@@ -274,7 +274,7 @@ void print_letter(uint8_t scancode) {
           shift_pressed = 32;
           break;
         case 0x37:
-          printString("*"); // Numpad multiply
+          //printString("*"); // Numpad multiply
           keybuffer[keybuff_pointer] = '*';
           keybuff_pointer++;
           break;
@@ -282,7 +282,7 @@ void print_letter(uint8_t scancode) {
           // LALT
           break;
         case 0x39:
-            printString(" ");
+            printChar(' ');
             keybuffer[keybuff_pointer] = ' ';
             keybuff_pointer++;
             break;
@@ -291,18 +291,18 @@ void print_letter(uint8_t scancode) {
             // it may still be a scancode we haven't implemented yet, or
             // maybe a control/escape sequence 
             if (scancode <= 0x7f) {
-                printString("<?>"); // unknown key down. � neni supported, dost smutne
+                //printString("<?>"); // unknown key down. � neni supported, dost smutne
             } else if (scancode <= 0x39 + 0x80) {
                 if((scancode == 0x2A + 0x80) || (scancode == 0x36 + 0x80)) {
                     shift_pressed = 0; // reset shift on key up
                 }
-                //printString("key up ");
+                ////printString("key up ");
                 //print_letter(scancode - 0x80);
-            } else //printString(""); // unknown key up
+            } else ////printString(""); // unknown key up
             break;
       }
   if(keybuff_pointer == MAX_SIZE){
-    printString(" Max size is 256 cannot store bigger strings in buffer  ");
+    //printString(" Max size is 256 cannot store bigger strings in buffer  ");
     for(int x = 0; x < MAX_SIZE; x++) keybuffer[x] = 0;
     keybuff_pointer = 0;
   }

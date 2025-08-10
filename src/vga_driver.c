@@ -23,6 +23,35 @@ void printPixel(uint32_t x, uint32_t y, uint32_t color){
   return;
 }
 
+int putChar(uint32_t x, uint32_t y, uint32_t fgcolor, uint32_t bgcolor, uint8_t letter) {
+  uint32_t letterindex = 0;
+  if (letter >= 97) {
+    letter -= 61;
+  }else if ((65 <= letter) && (letter <= 90)) {
+    letter -= 55;
+  } else if ((letter >= 48) && (letter <= 57)) {
+    letter -= 48;
+  } else {
+    for (int j = 0; j < 40; j++) {
+      for (int i = 0; i < 40; i++) {
+        printPixel(x + i, y + j, bgcolor);
+      }
+    }
+    return 0;
+  }
+  for (int j = 0; j < 40; j++) {
+    for (int i = 0; i < 40; i++) {
+      if (font3_data[letter][letterindex]) {
+        printPixel(x + i, y + j, fgcolor);
+      } else {
+        printPixel(x + i, y + j, bgcolor);
+      }
+      letterindex++;
+    }
+  }
+  return 0;
+}
+
 /*
 
 /*size_t terminal_row;
