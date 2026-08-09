@@ -1,5 +1,5 @@
 > [!WARNING]
-> This version of furOS is deprecated. Development has moved over to [furOS64](https://github.com/ivinexo1/FurOS64)
+> This version of furOS is deprecated. Development has moved over to [FurOS64](https://github.com/ivinexo1/FurOS64)
 
 # <p align="center" dir="auto">FurOS</p>
 <div align="center" dir="auto">
