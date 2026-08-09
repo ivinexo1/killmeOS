@@ -1,3 +1,6 @@
+> [!WARNING]
+> This version of furOS is deprecated. Development has moved to [furOS64]()
+
 # <p align="center" dir="auto">FurOS</p>
 <div align="center" dir="auto">
   <img src="https://img.shields.io/github/contributors/ivinexo1/FurOS"></img>
