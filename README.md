@@ -1,5 +1,5 @@
 > [!WARNING]
-> This version of furOS is deprecated. Development has moved to [furOS64]()
+> This version of furOS is deprecated. Development has moved over to [furOS64](https://github.com/ivinexo1/FurOS64)
 
 # <p align="center" dir="auto">FurOS</p>
 <div align="center" dir="auto">
@@ -18,7 +18,7 @@
   <img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/f95a2543-59b2-4ddb-a380-c23e38066a8b" />
 </div>
 
-# How to setup!!
+# How to setup
 
 This guide contains tutorials for both Linux and Windows 11
 
